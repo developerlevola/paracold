@@ -1,423 +1,443 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>💖</title>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&family=Poppins:wght@300;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    background: radial-gradient(circle, #ff69b4, #000);
-    overflow: hidden;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-family: 'Poppins', sans-serif;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>💖</title>
 
-  @media (max-height: 700px) {
-    body {
-      padding-top: 30px;
+  <!-- Favicon de coração -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&family=Poppins:wght@300;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-  }
+    body {
+      background: radial-gradient(circle, #ff69b4, #000);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: 'Poppins', sans-serif;
+    }
 
-  .text-top {
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    margin-bottom: 25px;
-    z-index: 2;
-    text-shadow: 0 0 5px #ff69b4;
-  }
+    @media (max-height: 700px) {
+      body {
+        padding-top: 30px;
+      }
+    }
 
-  .text-top p {
-    margin: 0;
-    font-size: 24px;
-    font-weight: 400;
-  }
+    .text-top {
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      margin-bottom: 25px;
+      z-index: 2;
+      text-shadow: 0 0 5px #ff69b4;
+    }
 
-  .text-top strong {
-    font-weight: 600;
-  }
+    .text-top p {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 400;
+    }
 
-  .heart {
-    width: 250px;
-    cursor: pointer;
-    animation: pulse 1.2s infinite;
-    z-index: 2;
-    transition: 0.4s;
-  }
+    .text-top strong {
+      font-weight: 600;
+    }
 
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-  }
+    .heart {
+      width: 250px;
+      cursor: pointer;
+      animation: pulse 1.2s infinite;
+      z-index: 2;
+      transition: 0.4s;
+    }
 
-  svg {
-    width: 100%;
-    height: 100%;
-    fill: none;
-    stroke: #fff;
-    stroke-width: 4;
-    filter: drop-shadow(0 0 5px #ff69b4);
-    transition: 0.3s;
-  }
+    .click-text {
+      color: white;
+      margin-top: 10px;
+      font-size: 16px;
+      text-shadow: 0 0 5px #ff69b4;
+      animation: pulseText 1.2s infinite;
+      z-index: 2;
+    }
 
-  svg:hover {
-    stroke: #ff69b4;
-    filter: drop-shadow(0 0 10px #ff69b4);
-  }
+    @keyframes pulseText {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
 
-  .hearts-falling {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-  }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
 
-  .hearts-falling span {
-    position: absolute;
-    display: block;
-    width: 20px;
-    height: 20px;
-    background: #ff69b4;
-    transform: rotate(-45deg);
-    animation: fall linear infinite;
-    opacity: 0.8;
-    box-shadow: 0 0 10px #ff69b4;
-  }
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 4;
+      filter: drop-shadow(0 0 5px #ff69b4);
+      transition: 0.3s;
+    }
 
-  .hearts-falling span::before,
-  .hearts-falling span::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #ff69b4;
-    border-radius: 50%;
-  }
+    svg:hover {
+      stroke: #ff69b4;
+      filter: drop-shadow(0 0 10px #ff69b4);
+    }
 
-  .hearts-falling span::before { top: -10px; left: 0; }
-  .hearts-falling span::after { left: 10px; top: 0; }
+    .hearts-falling {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
 
-  @keyframes fall {
-    0% { transform: translateY(-10vh) rotate(-45deg); opacity: 1; }
-    100% { transform: translateY(110vh) rotate(-45deg); opacity: 0; }
-  }
+    .hearts-falling span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: #ff69b4;
+      transform: rotate(-45deg);
+      animation: fall linear infinite;
+      opacity: 0.8;
+      box-shadow: 0 0 10px #ff69b4;
+    }
 
-  .envelope {
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 0 20px #ff69b4;
-    max-width: 500px;
-    z-index: 2;
-    opacity: 0;
-    transform: scale(0.8) skew(2deg, 2deg);
-    pointer-events: none;
-    transition: all 0.5s ease;
-    user-select: none;
-  }
+    .hearts-falling span::before,
+    .hearts-falling span::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff69b4;
+      border-radius: 50%;
+    }
 
-  .envelope.show {
-    opacity: 1;
-    transform: scale(1) skew(0,0);
-    pointer-events: auto;
-  }
+    .hearts-falling span::before { top: -10px; left: 0; }
+    .hearts-falling span::after { left: 10px; top: 0; }
 
-  .envelope.hide {
-    opacity: 0;
-    transform: scale(0.8) skew(2deg, 2deg);
-    pointer-events: none;
-  }
+    @keyframes fall {
+      0% { transform: translateY(-10vh) rotate(-45deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(-45deg); opacity: 0; }
+    }
 
-  .envelope h1 {
-    color: #ff69b4;
-    font-family: 'Pacifico', cursive;
-    margin-bottom: 20px;
-  }
+    .envelope {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 0 20px #ff69b4;
+      max-width: 500px;
+      z-index: 2;
+      opacity: 0;
+      transform: scale(0.8) skew(2deg, 2deg);
+      pointer-events: none;
+      transition: all 0.5s ease;
+      user-select: none;
+    }
 
-  .envelope p {
-    color: #333;
-    font-size: 18px;
-    min-height: 72px; /* para evitar pular tamanho durante digitação */
-    white-space: pre-wrap;
-    font-family: 'Poppins', sans-serif;
-  }
+    .envelope.show {
+      opacity: 1;
+      transform: scale(1) skew(0,0);
+      pointer-events: auto;
+    }
 
-  .close-btn {
-    margin-top: 20px;
-    background-color: #ff69b4;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: 0 0 5px #ff69b4;
-    transition: 0.3s;
-  }
-  .close-btn:hover {
-    background-color: #ff3388;
-  }
+    .envelope.hide {
+      opacity: 0;
+      transform: scale(0.8) skew(2deg, 2deg);
+      pointer-events: none;
+    }
 
-  .player {
-    position: absolute;
-    bottom: 30px;
-    background: rgba(255, 105, 180, 0.15);
-    backdrop-filter: blur(10px);
-    padding: 10px 20px;
-    border-radius: 30px;
-    box-shadow: 0 0 10px #ff69b4;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    z-index: 2;
-    transition: 0.3s;
-  }
+    .envelope h1 {
+      color: #ff69b4;
+      font-family: 'Pacifico', cursive;
+      margin-bottom: 20px;
+    }
 
-  .player:hover {
-    box-shadow: 0 0 15px #ff69b4, 0 0 25px #ff69b4;
-  }
+    .envelope p {
+      color: #333;
+      font-size: 18px;
+      min-height: 72px;
+      white-space: pre-wrap;
+      font-family: 'Poppins', sans-serif;
+    }
 
-  .player .cover {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 0 5px #ff69b4;
-    transition: 0.3s;
-  }
+    .close-btn {
+      margin-top: 20px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 0 5px #ff69b4;
+      transition: 0.3s;
+    }
 
-  .player .cover:hover {
-    filter: brightness(1.2);
-    box-shadow: 0 0 10px #ff69b4;
-  }
+    .close-btn:hover {
+      background-color: #ff3388;
+    }
 
-  .music-info {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    flex: 1;
-  }
+    .player {
+      position: absolute;
+      bottom: 30px;
+      background: rgba(255, 105, 180, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 10px 20px;
+      border-radius: 30px;
+      box-shadow: 0 0 10px #ff69b4;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 2;
+      transition: 0.3s;
+    }
 
-  .music-info .title {
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-  }
+    .player:hover {
+      box-shadow: 0 0 15px #ff69b4, 0 0 25px #ff69b4;
+    }
 
-  .music-info .artist {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 13px;
-  }
+    .player .cover {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 0 5px #ff69b4;
+      transition: 0.3s;
+    }
 
-  .progress {
-    width: 100%;
-    height: 5px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-  }
+    .player .cover:hover {
+      filter: brightness(1.2);
+      box-shadow: 0 0 10px #ff69b4;
+    }
 
-  .progress div {
-    background-color: #ff69b4;
-    height: 100%;
-    width: 0%;
-    transition: width 0.2s;
-  }
+    .music-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
 
-  .player button {
-    background-color: #ff69b4;
-    border: none;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 0 5px #ff69b4;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-  }
-  .player button:hover {
-    box-shadow: 0 0 10px #ff69b4, 0 0 15px #ff69b4;
-    transform: scale(1.1);
-  }
+    .music-info .title {
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+    }
 
-  footer {
-    position: absolute;
-    bottom: 5px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.7);
-    z-index: 2;
-    font-family: 'Poppins', sans-serif;
-  }
-</style>
+    .music-info .artist {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 13px;
+    }
+
+    .progress {
+      width: 100%;
+      height: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress div {
+      background-color: #ff69b4;
+      height: 100%;
+      width: 0%;
+      transition: width 0.2s;
+    }
+
+    .player button {
+      background-color: #ff69b4;
+      border: none;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 5px #ff69b4;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+
+    .player button:hover {
+      box-shadow: 0 0 10px #ff69b4, 0 0 15px #ff69b4;
+      transform: scale(1.1);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 5px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      z-index: 2;
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
 </head>
 <body>
 
-<div class="hearts-falling" id="hearts"></div>
+  <div class="hearts-falling" id="hearts"></div>
 
-<div class="text-top" id="textTop">
-  <p><strong>De:</strong> Lara</p>
-  <p><strong>Para:</strong> Cold</p>
-</div>
-
-<div class="heart" id="heart" onclick="openEnvelope()">
-  <svg viewBox="0 0 100 100" >
-    <path d="M50 30 L35 15 L15 35 L50 85 L85 35 L65 15 Z" />
-    <path d="M35 15 L50 50 L65 15" />
-    <path d="M15 35 L50 50 L85 35" />
-    <path d="M35 15 L15 35" />
-    <path d="M65 15 L85 35" />
-  </svg>
-</div>
-
-<div class="envelope hide" id="envelope">
-  <h1>Para Você 💖</h1>
-  <p id="typed-text"></p>
-  <button class="close-btn" onclick="closeEnvelope()">Fechar</button>
-</div>
-
-<div class="player">
-  <img src="ab67616d0000b273e6065f209e0a01986206bd53.jpg" class="cover" alt="Capa da música" />
-  <div class="music-info">
-    <div class="title">Sailor Song.</div>
-    <div class="artist">Isso me faz lembrar em ti</div>
-    <div class="progress" id="progressBar"><div></div></div>
+  <div class="text-top" id="textTop">
+    <p><strong>De:</strong> Lara</p>
+    <p><strong>Para:</strong> Cold</p>
   </div>
-  <button id="playPause" aria-label="Play/Pause">
-    <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
-      <path d="M8 5v14l11-7z"/>
+
+  <div class="heart" id="heart" onclick="openEnvelope()">
+    <svg viewBox="0 0 100 100">
+      <path d="M50 30 L35 15 L15 35 L50 85 L85 35 L65 15 Z" />
+      <path d="M35 15 L50 50 L65 15" />
+      <path d="M15 35 L50 50 L85 35" />
+      <path d="M35 15 L15 35" />
+      <path d="M65 15 L85 35" />
     </svg>
-    <svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24" style="display:none">
-      <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-    </svg>
-  </button>
-</div>
+  </div>
+  <p class="click-text">Clique em mim</p>
 
-<footer>© Lara Desenvolvimentos</footer>
+  <div class="envelope hide" id="envelope">
+    <h1>Para Você 💖</h1>
+    <p id="typed-text"></p>
+    <button class="close-btn" onclick="closeEnvelope()">Fechar</button>
+  </div>
 
-<audio id="audio">
-  <source src="https://files.catbox.moe/er2975.mp3" type="audio/mpeg" />
-</audio>
+  <div class="player">
+    <img src="C:\Users\leona\Downloads\ab67616d0000b273e6065f209e0a01986206bd53.jpg" class="cover" alt="Capa da música" />
+    <div class="music-info">
+      <div class="title">Sailor Song.</div>
+      <div class="artist">Isso me faz lembrar em ti</div>
+      <div class="progress" id="progressBar"><div></div></div>
+    </div>
+    <button id="playPause" aria-label="Play/Pause">
+      <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      <svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24" style="display:none">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+      </svg>
+    </button>
+  </div>
 
-<script>
-  const audio = document.getElementById('audio');
-  const playPause = document.getElementById('playPause');
-  const progressBar = document.getElementById('progressBar').firstElementChild;
-  const iconPlay = document.getElementById('icon-play');
-  const iconPause = document.getElementById('icon-pause');
-  const typedTextElem = document.getElementById('typed-text');
+  <footer>© Lara Desenvolvimentos</footer>
 
-  const message = "Essa é uma pequena homenagem para te lembrar do quanto você é especial e importante na minha vida. Que esse coração traga um sorriso para o seu rosto, assim como você traz para o meu todos os dias. ✨";
-  let typingIndex = 0;
-  let typingInterval;
+  <audio id="audio">
+    <source src="https://files.catbox.moe/er2975.mp3" type="audio/mpeg" />
+  </audio>
 
-  function typeText() {
-    if (typingIndex < message.length) {
-      typedTextElem.textContent += message.charAt(typingIndex);
-      typingIndex++;
-    } else {
-      clearInterval(typingInterval);
+  <script>
+    const audio = document.getElementById('audio');
+    const playPause = document.getElementById('playPause');
+    const progressBar = document.getElementById('progressBar').firstElementChild;
+    const iconPlay = document.getElementById('icon-play');
+    const iconPause = document.getElementById('icon-pause');
+    const typedTextElem = document.getElementById('typed-text');
+
+    const message = "Essa é uma pequena homenagem para te lembrar do quanto você é especial e importante na minha vida. Que esse coração traga um sorriso para o seu rosto, assim como você traz para o meu todos os dias. ✨";
+    let typingIndex = 0;
+    let typingInterval;
+
+    function typeText() {
+      if (typingIndex < message.length) {
+        typedTextElem.textContent += message.charAt(typingIndex);
+        typingIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
     }
-  }
 
-  function startTyping() {
-    typedTextElem.textContent = "";
-    typingIndex = 0;
-    typingInterval = setInterval(typeText, 35);
-  }
+    function startTyping() {
+      typedTextElem.textContent = "";
+      typingIndex = 0;
+      typingInterval = setInterval(typeText, 35);
+    }
 
-  playPause.addEventListener('click', () => {
-    if (audio.paused) {
+    playPause.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playPause.style.backgroundColor = "#00ff00";
+        iconPlay.style.display = "none";
+        iconPause.style.display = "block";
+      } else {
+        audio.pause();
+        playPause.style.backgroundColor = "#ff69b4";
+        iconPlay.style.display = "block";
+        iconPause.style.display = "none";
+      }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) {
+        const progress = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = progress + '%';
+      }
+    });
+
+    function openEnvelope() {
+      document.getElementById('heart').style.display = 'none';
+      document.querySelector('.click-text').style.display = 'none';
+      document.getElementById('textTop').style.display = 'none';
+      const env = document.getElementById('envelope');
+      env.classList.remove('hide');
+      env.classList.add('show');
+      startHearts();
       audio.play();
       playPause.style.backgroundColor = "#00ff00";
       iconPlay.style.display = "none";
       iconPause.style.display = "block";
-    } else {
+      startTyping();
+    }
+
+    function closeEnvelope() {
+      document.getElementById('heart').style.display = 'block';
+      document.querySelector('.click-text').style.display = 'block';
+      document.getElementById('textTop').style.display = 'block';
+      const env = document.getElementById('envelope');
+      env.classList.remove('show');
+      env.classList.add('hide');
       audio.pause();
       playPause.style.backgroundColor = "#ff69b4";
       iconPlay.style.display = "block";
       iconPause.style.display = "none";
     }
-  });
 
-  audio.addEventListener('timeupdate', () => {
-    if (audio.duration) {
-      const progress = (audio.currentTime / audio.duration) * 100;
-      progressBar.style.width = progress + '%';
+    function startHearts() {
+      const container = document.getElementById('hearts');
+      for (let i = 0; i < 30; i++) {
+        const span = document.createElement('span');
+        span.style.left = Math.random() * 100 + 'vw';
+        span.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        span.style.opacity = Math.random();
+        container.appendChild(span);
+        setTimeout(() => span.remove(), 5000);
+      }
+
+      setInterval(() => {
+        const span = document.createElement('span');
+        span.style.left = Math.random() * 100 + 'vw';
+        span.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        span.style.opacity = Math.random();
+        container.appendChild(span);
+        setTimeout(() => span.remove(), 5000);
+      }, 500);
     }
-  });
-
-  function openEnvelope() {
-    document.getElementById('heart').style.display = 'none';
-    document.getElementById('textTop').style.display = 'none';
-    const env = document.getElementById('envelope');
-    env.classList.remove('hide');
-    env.classList.add('show');
-    startHearts();
-    audio.play();
-    playPause.style.backgroundColor = "#00ff00";
-    iconPlay.style.display = "none";
-    iconPause.style.display = "block";
-    startTyping();
-  }
-
-  function closeEnvelope() {
-    document.getElementById('heart').style.display = 'block';
-    document.getElementById('textTop').style.display = 'block';
-    const env = document.getElementById('envelope');
-    env.classList.remove('show');
-    env.classList.add('hide');
-    audio.pause();
-    playPause.style.backgroundColor = "#ff69b4";
-    iconPlay.style.display = "block";
-    iconPause.style.display = "none";
-  }
-
-  function startHearts() {
-    const container = document.getElementById('hearts');
-    for (let i = 0; i < 30; i++) {
-      const span = document.createElement('span');
-      span.style.left = Math.random() * 100 + 'vw';
-      span.style.animationDuration = (Math.random() * 3 + 2) + 's';
-      span.style.opacity = Math.random();
-      container.appendChild(span);
-
-      setTimeout(() => {
-        span.remove();
-      }, 5000);
-    }
-    setInterval(() => {
-      const span = document.createElement('span');
-      span.style.left = Math.random() * 100 + 'vw';
-      span.style.animationDuration = (Math.random() * 3 + 2) + 's';
-      span.style.opacity = Math.random();
-      container.appendChild(span);
-
-      setTimeout(() => {
-        span.remove();
-      }, 5000);
-    }, 500);
-  }
-</script>
+  </script>
 
 </body>
 </html>
